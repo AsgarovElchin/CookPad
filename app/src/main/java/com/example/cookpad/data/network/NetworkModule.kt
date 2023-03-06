@@ -1,6 +1,5 @@
 package com.example.cookpad.data.network
 
-import com.example.cookpad.FoodRecipesApi
 import com.example.cookpad.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

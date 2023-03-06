@@ -1,4 +1,4 @@
-package com.example.cookpad
+package com.example.cookpad.data.network
 
 import com.example.cookpad.models.FoodRecipe
 import retrofit2.Response

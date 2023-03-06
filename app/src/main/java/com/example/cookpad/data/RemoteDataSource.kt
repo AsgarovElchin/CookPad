@@ -1,5 +1,6 @@
-package com.example.cookpad
+package com.example.cookpad.data
 
+import com.example.cookpad.data.network.FoodRecipesApi
 import com.example.cookpad.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject
