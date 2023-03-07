@@ -15,8 +15,10 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(private val repository: Repository,
-application: Application) : AndroidViewModel(application) {
+class MainViewModel @Inject constructor(
+    private val repository: Repository,
+    application: Application
+) : AndroidViewModel(application) {
     var recipesResponse: MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
 
     fun getRecipes(queries: Map<String, String>) = viewModelScope.launch {
