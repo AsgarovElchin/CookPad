@@ -1,6 +1,7 @@
 package com.example.cookpad.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.cookpad.databinding.FragmentRecipesBinding
 import com.example.cookpad.utils.Constants.API_KEY
 import com.example.cookpad.utils.NetworkResult
 import com.example.cookpad.viewmodels.RecipesViewModel
+import java.time.LocalDate
 
 
 class RecipesFragment : Fragment() {
@@ -34,17 +36,17 @@ class RecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRecipesBinding.inflate(inflater, container, false)
-        return binding.root
-
-
+        Log.d("sada","222")
         setupRecyclerView()
         requestApiData()
-
+        return binding.root
     }
+
+
     private fun requestApiData() {
         mainViewModel.getRecipes(recipesViewModel.applyQueries())
         mainViewModel.recipesResponse.observe(viewLifecycleOwner, { response ->
-            when(response){
+            when (response) {
                 is NetworkResult.Success -> {
                     response.data?.let { mAdapter.setData(it) }
                 }
@@ -55,7 +57,11 @@ class RecipesFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                is NetworkResult.Loading -> Toast.makeText(requireContext(), "Loading...", Toast.LENGTH_SHORT).show()
+                is NetworkResult.Loading -> Toast.makeText(
+                    requireContext(),
+                    "Loading",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }

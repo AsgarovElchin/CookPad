@@ -17,12 +17,14 @@ class RecipesViewHolder(val binding: RecipesRowLayoutBinding) :
   fun bind(result: com.example.cookpad.models.Result){
       binding.titleTextView.text = result.title
       binding.descriptionTextView.text = result.summary
-      binding.recipeImageView.load(result.sourceUrl)
+      binding.recipeImageView.load(result.image)
       binding.heartTextView.text = result.aggregateLikes.toString()
       binding.clockTextView.text = result.readyInMinutes.toString()
+      applyVeganColor(binding.leafTextView,result.vegan)
+      applyVeganColor(binding.leafImageView,result.vegan)
 
   }
-    fun applyVeganColor(view: View,vegan:Boolean){
+    fun applyVeganColor(view: View, vegan:Boolean){
         if(vegan){
             when(view){
                 is TextView ->{
