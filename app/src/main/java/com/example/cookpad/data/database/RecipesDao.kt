@@ -1,4 +1,4 @@
-package com.example.cookpad
+package com.example.cookpad.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert

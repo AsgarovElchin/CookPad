@@ -1,4 +1,4 @@
-package com.example.cookpad
+package com.example.cookpad.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
