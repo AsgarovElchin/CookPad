@@ -15,11 +15,14 @@ import com.example.cookpad.utils.Constants.QUERY_DIET
 import com.example.cookpad.utils.Constants.QUERY_FILL_INGREDIENTS
 import com.example.cookpad.utils.Constants.QUERY_NUMBER
 import com.example.cookpad.utils.Constants.QUERY_TYPE
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class RecipesViewModel @Inject constructor(application: Application, private val dataStoreRepository: DataStoreRepository) : AndroidViewModel(application) {
 
     private var mealType = DEFAULT_MEAL_TYPE
