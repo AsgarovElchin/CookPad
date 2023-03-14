@@ -1,4 +1,4 @@
-package com.example.cookpad.fragments
+package com.example.cookpad.fragments.overview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.cookpad.R
 
 
-class InstructionsFragment : Fragment() {
+class OverviewFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class InstructionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructions, container, false)
+        return inflater.inflate(R.layout.fragment_overview, container, false)
     }
 
 
