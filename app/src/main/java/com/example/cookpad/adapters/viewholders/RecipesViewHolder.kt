@@ -7,10 +7,12 @@ import android.view.ViewParent
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.cookpad.R
 import com.example.cookpad.databinding.RecipesRowLayoutBinding
+import com.example.cookpad.fragments.recipes.RecipesFragmentDirections
 
 class RecipesViewHolder(val binding: RecipesRowLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
@@ -22,6 +24,10 @@ class RecipesViewHolder(val binding: RecipesRowLayoutBinding) :
       binding.clockTextView.text = result.readyInMinutes.toString()
       applyVeganColor(binding.leafTextView,result.vegan)
       applyVeganColor(binding.leafImageView,result.vegan)
+      binding.root.setOnClickListener {
+          val action = RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
+          binding.recipesRowLayout.findNavController().navigate(action)
+      }
 
   }
     fun applyVeganColor(view: View, vegan:Boolean){
