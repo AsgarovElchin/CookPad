@@ -3,9 +3,9 @@ package com.example.cookpad.utils
 import androidx.recyclerview.widget.DiffUtil
 import kotlin.math.sign
 
-class RecipesDiffUtil(
-    private val oldList: List<com.example.cookpad.models.Result>,
-    private val newList: List<com.example.cookpad.models.Result>
+class RecipesDiffUtil<T>(
+    private val oldList: List<T>,
+    private val newList: List<T>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return oldList.size
