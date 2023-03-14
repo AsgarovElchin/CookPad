@@ -13,12 +13,16 @@ import coil.load
 import com.example.cookpad.R
 import com.example.cookpad.databinding.RecipesRowLayoutBinding
 import com.example.cookpad.fragments.recipes.RecipesFragmentDirections
+import org.jsoup.Jsoup
 
 class RecipesViewHolder(val binding: RecipesRowLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
   fun bind(result: com.example.cookpad.models.Result){
       binding.titleTextView.text = result.title
-      binding.descriptionTextView.text = result.summary
+      result.summary.let {
+          val summary = Jsoup.parse(it).text()
+          binding.descriptionTextView.text = summary
+      }
       binding.recipeImageView.load(result.image)
       binding.heartTextView.text = result.aggregateLikes.toString()
       binding.clockTextView.text = result.readyInMinutes.toString()
